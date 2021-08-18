@@ -99,6 +99,7 @@ export class RandomForestBase {
     let oobResults = new Array(this.nEstimators);
 
     for (let i = 0; i < this.nEstimators; ++i) {
+      console.log("test");
       let res = this.useSampleBagging
         ? Utils.examplesBaggingWithReplacement(
             trainingSet,
