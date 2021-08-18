@@ -99,7 +99,7 @@ export class RandomForestBase {
     let oobResults = new Array(this.nEstimators);
 
     for (let i = 0; i < this.nEstimators; ++i) {
-      callbackFunction(i/this.nEstimators);
+      callbackFunction({progress:i/this.nEstimators, trainState:"training"});
       let res = this.useSampleBagging
         ? Utils.examplesBaggingWithReplacement(
             trainingSet,
