@@ -63,7 +63,7 @@ export class RandomForestBase {
    * @param {Matrix|Array} trainingSet
    * @param {Array} trainingValues
    */
-  train(trainingSet, trainingValues) {
+  train(trainingSet, trainingValues, callbackFunction) {
     let currentSeed = this.seed;
 
     trainingSet = Matrix.checkMatrix(trainingSet);
@@ -99,7 +99,7 @@ export class RandomForestBase {
     let oobResults = new Array(this.nEstimators);
 
     for (let i = 0; i < this.nEstimators; ++i) {
-      console.log("test");
+      callbackFunction(i/this.nEstimators);
       let res = this.useSampleBagging
         ? Utils.examplesBaggingWithReplacement(
             trainingSet,
