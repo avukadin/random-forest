@@ -51,7 +51,7 @@ declare module 'ml-random-forest' {
          * @param {Matrix|Array} trainingSet
          * @param {Array} trainingValues
          */
-        train(trainingSet: number[][], trainingValues: number[]): void;
+        train(trainingSet: number[][], trainingValues: number[], callbackFunction:Function): void;
 
 
         /**
